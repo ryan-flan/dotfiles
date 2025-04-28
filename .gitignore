@@ -1,0 +1,34 @@
+# Ignore everything in .config by default
+.config/*
+
+# But keep only what you care about
+!.config/fish/
+!.config/zellij/
+!.config/nvim/
+!.config/home-manager/
+!.config/ghostty/
+!.config/starship.toml
+
+# Track all files inside those directories too
+!.config/fish/**
+!.config/zellij/**
+!.config/nvim/**
+!.config/home-manager/**
+!.config/ghostty/**
+
+# -- Specific ignores inside tracked folders --
+
+# Inside .config/nvim, ignore lazy-lock.json
+.config/nvim/lazy-lock.json
+
+# Ignore random Mac files
+.DS_Store
+.config/.DS_Store
+
+# Ignore any general temporary files
+*.bak
+*.swp
+*.swo
+*.tmp
+
+result
