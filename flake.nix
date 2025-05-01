@@ -1,5 +1,5 @@
 {
-  description = "Darwin configuration with Flox";
+  description = "Darwin configuration";
 
   nixConfig = {
     extra-trusted-substituters = [ "https://cache.flox.dev" ];
@@ -7,7 +7,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable"; # you can also use 23.11 if you want
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +29,7 @@
       flake = false;
     };
     flox = {
-      url = "github:flox/flox/v1.4.0"; # IMPORTANT: pin to a *version* of flox
+      url = "github:flox/flox/v1.4.0";
     };
   };
 
@@ -49,6 +49,12 @@
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
             system.stateVersion = 6;
 
+            # Set environment variables system-wide
+            environment.variables = {
+              EDITOR = "nvim";
+              VISUAL = "nvim";
+            };
+
             environment.systemPackages = [
               pkgs.vim
               pkgs.curl
@@ -58,7 +64,7 @@
               pkgs.gh
               pkgs.neovim
               pkgs.devbox
-              flox.packages.${system}.default # ← Flox is added here properly
+              flox.packages.${system}.default
             ];
 
             environment.shells = with pkgs; [ fish bash ];
@@ -154,4 +160,3 @@
     };
   };
 }
-
