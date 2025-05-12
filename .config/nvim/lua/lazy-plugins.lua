@@ -21,7 +21,7 @@ require('lazy').setup({
   require 'core/plugins/telescope',
   require 'core/plugins/lspconfig',
   require 'core/plugins/conform',
-  require 'core/plugins/cmp',
+  require 'core/plugins/blink-cmp',
   require 'core/plugins/colorschemes',
   require 'core/plugins/todo-comments',
   require 'core/plugins/mini',
