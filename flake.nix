@@ -46,6 +46,7 @@
         modules = [
           ({ pkgs, ... }: {
             nix.enable = true;
+            nixpkgs.config.allowUnfree = true;
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
             system.stateVersion = 6;
 
@@ -59,11 +60,6 @@
               pkgs.vim
               pkgs.curl
               pkgs.wget
-              pkgs.ripgrep
-              pkgs.zellij
-              pkgs.gh
-              pkgs.neovim
-              pkgs.devbox
               flox.packages.${system}.default
             ];
 
@@ -104,6 +100,7 @@
               ];
               casks = [
                 "ghostty"
+                "raycast"
               ];
               onActivation.autoUpdate = true;
             };
@@ -127,7 +124,7 @@
                 pkgs.zellij
                 pkgs.gh
                 pkgs.neovim
-                pkgs.devbox
+                pkgs._1password-cli
               ];
 
               home.file = {
