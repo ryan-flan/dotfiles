@@ -30,6 +30,7 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {
   lockfile = vim.fn.stdpath 'data' .. '/lazy-lock.json',
+  root = vim.fn.stdpath 'data' .. '/lazy',
   ui = {
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
